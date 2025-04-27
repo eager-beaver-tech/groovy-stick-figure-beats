@@ -1,11 +1,19 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from 'react';
+import { DancingStickman } from '@/components/DancingStickman';
+import { MusicControls } from '@/components/MusicControls';
 
 const Index = () => {
+  const [genre, setGenre] = useState<'pop' | 'rock' | 'hiphop'>('pop');
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50 py-12 px-4">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Groovy Stick Figure</h1>
+        <DancingStickman genre={genre} />
+        <div className="mt-8">
+          <MusicControls genre={genre} onGenreChange={setGenre} />
+        </div>
       </div>
     </div>
   );
